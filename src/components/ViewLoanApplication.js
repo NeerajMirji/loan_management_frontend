@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { getEmployeeList } from "./api";
+import { getLoanApplications } from "./api";
 
-const EmployeeList = () => {
+const ViewLoanApplication = () => {
+
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
     return async () => {
-      const response = await getEmployeeList();
+      const response = await getLoanApplications();
       setEmployees(response);
       console.log("This is from useEffect", response);
     };
@@ -18,7 +19,7 @@ const EmployeeList = () => {
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Employee Id</th>
             <th>Gender</th>
             <th>Age</th>
             <th>Salary</th>
